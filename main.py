@@ -80,3 +80,4 @@ def handler(event, context):
                                     encoding='utf-8')
     s3_response = get_object(bucket, key)
     send_email(s3_response, bucket, key)
+    print("arthur was here")
