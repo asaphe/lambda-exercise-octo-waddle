@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "ses:SendEmail",
+              "ses:SendRawEmail"
+          ],
+          "Resource": "arn:aws:ses:eu-west-1:664882589086:identity/*"
+      }
+  ]
+}

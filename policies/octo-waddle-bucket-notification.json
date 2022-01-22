@@ -1,0 +1,10 @@
+{  
+  "LambdaFunctionConfigurations": [
+   {
+     "LambdaFunctionArn": "arn:aws:lambda:eu-west-1:664882589086:function:octo-waddle",
+     "Events": [
+        "s3:ObjectCreated:*"
+     ]
+   }
+  ]
+}
