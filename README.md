@@ -9,6 +9,17 @@
 
 Github actions is used to build the container image for every push. The image name is determined by `${{ github.ref_name }}`
 
+> Note: During the build, Github secrets is used to set the sender and reciver email addresses. replacing the secrets in github will ensure the image contains the addresses.
+
+```shell
+SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+```
+
+> At runtime the email addresses can be changed by running:
+>
+> `aws lambda update-function-configuration --function-name 'octo-waddle' --environment "Variables={SENDER=${sender_email},RECIPIENT=${recipient_email}}"`
+
 ## Resources
 
 * [Lambda S3 Example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
@@ -70,9 +81,6 @@ done
 ```shell
 aws lambda create-function --function-name "${LAMBDA_NAME}" --package-type 'Image' --image-config '{"Command": ["main.handler"]}' --code "{\"ImageUri\": \"${aws_account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com/${image_name}:${image_tag}\"}" --environment "Variables={SENDER=${sender_email},RECIPIENT=${recipient_email}}" --role "arn:aws:iam::${aws_account_id}:role/octo-waddle" --description 'An Amazon S3 trigger that retrieves metadata for the object that has been updated.'
 ```
-
-* Modify Lambda Environment variables
-`aws lambda update-function-configuration --function-name 'octo-waddle' --environment "Variables={SENDER=${sender_email},RECIPIENT=${recipient_email}}"`
 
 * Allow AWS S3 to invoke AWS Lambda
 
