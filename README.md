@@ -86,13 +86,11 @@ aws lambda add-permission --function-name "${LAMBDA_NAME}" --statement-id "s3_in
 
 ### AWS SES
 
-> AWS Console
+* Create an SES email identity
 
-1. Navigate to Amazon SES
-2. Create Identity
-3. Enter an email address to use
+`aws sesv2 create-email-identity --email-identity "${sender_email}" --tags "{\"Key\": \"Name\", \"Value\": \"${LAMBDA_NAME}-sender\"}"`
 
-Complete the verification step by following the instructions
+Complete the verification step by following the instructions in the email
 
 ### Build Docker Image
 
