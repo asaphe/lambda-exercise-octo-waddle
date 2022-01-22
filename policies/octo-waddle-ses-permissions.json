@@ -7,7 +7,7 @@
               "ses:SendEmail",
               "ses:SendRawEmail"
           ],
-          "Resource": "arn:aws:ses:eu-west-1:664882589086:identity/*"
+          "Resource": "arn:aws:ses:AWS_REGION:AWS_ACCOUNT_ID:identity/*"
       }
   ]
 }

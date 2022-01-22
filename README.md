@@ -1,5 +1,9 @@
 # octo-waddle
 
+## TO-DO
+
+* Template IAM policies step
+
 ## Requirements
 
 * AWS CLI Credentials

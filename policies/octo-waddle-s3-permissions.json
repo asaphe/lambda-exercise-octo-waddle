@@ -10,8 +10,8 @@
               "s3:GetBucketLocation"
           ],
           "Resource": [
-              "arn:aws:s3:::octo-waddle",
-              "arn:aws:s3:::octo-waddle/*"
+              "arn:aws:s3:::LAMBDA_NAME",
+              "arn:aws:s3:::LAMBDA_NAME/*"
           ]
       }
   ]

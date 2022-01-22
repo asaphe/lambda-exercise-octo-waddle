@@ -1,7 +1,7 @@
 {  
   "LambdaFunctionConfigurations": [
    {
-     "LambdaFunctionArn": "arn:aws:lambda:eu-west-1:664882589086:function:octo-waddle",
+     "LambdaFunctionArn": "arn:aws:lambda:AWS_REGION:AWS_ACCOUNT_ID:function:LAMBDA_NAME",
      "Events": [
         "s3:ObjectCreated:*"
      ]

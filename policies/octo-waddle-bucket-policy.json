@@ -4,15 +4,15 @@
       {
           "Effect": "Allow",
           "Principal": {
-              "AWS": "arn:aws:iam::664882589086:role/octo-waddle"
+              "AWS": "arn:aws:iam::AWS_ACCOUNT_ID:role/LAMBDA_NAME"
           },
           "Action": [
               "s3:GetObject",
               "s3:ListBucket"
           ],
           "Resource": [
-              "arn:aws:s3:::octo-waddle",
-              "arn:aws:s3:::octo-waddle/*"
+              "arn:aws:s3:::LAMBDA_NAME",
+              "arn:aws:s3:::LAMBDA_NAME/*"
           ]
       }
   ]
