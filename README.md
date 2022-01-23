@@ -1,8 +1,7 @@
 # octo-waddle
 
-## TO-DO
-
-* Template IAM policies step
+This repository uses Github actions to build and deploy an AWS Lambda function.  
+AWS S3 notifies the Lambda on any upload events, the Lambda sends an email for each event.
 
 ## Requirements
 
@@ -69,6 +68,10 @@ aws iam create-role --role-name "${LAMBDA_NAME}" --assume-role-policy-document f
 * Create IAM policies for our Role and attach them
 
 ```shell
+sed -i "s/AWS_REGION/${AWS_REGION}/g" ./policies/*
+sed -i "s/LAMBDA_NAME/${LAMBDA_NAME}/g" ./policies/*
+sed -i "s/AWS_ACCOUNT_ID/${aws_account_id}/g" ./policies/*
+
 for file in $(find ./policies -type file ! -iname "*trust*" ! -iname "*bucket*" -exec basename {} \;); do
   policy_name="$(echo ${file}| cut -d '.' -f1)"
   aws iam create-policy --policy-name "${policy_name}" --tags "[{\"Key\": \"Name\", \"Value\": \"${policy_name}\"}]" --policy-document "file://policies/${file}" --description "${policy_name}";
