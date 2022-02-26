@@ -1,5 +1,7 @@
 # octo-waddle
 
+> An exercise in creating an AWS Lambda.
+
 This repository uses Github actions to build and deploy an AWS Lambda function.  
 AWS S3 notifies the Lambda on any upload events, the Lambda sends an email for each event.
 
